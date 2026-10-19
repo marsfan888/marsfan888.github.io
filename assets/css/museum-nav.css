@@ -1,0 +1,13 @@
+/* A mobile return link, independent of the preserved museum stylesheet. */
+.museum-home {
+  display: none;
+}
+@media (max-width: 760px) {
+  .museum-home {
+    display: block;
+    margin-top: 16px;
+    font-size: 10px;
+    letter-spacing: .08em;
+    color: var(--muted);
+  }
+}

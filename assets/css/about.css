@@ -1,0 +1,74 @@
+/* Page-local typography and player; shared home and album styles stay intact. */
+[hidden] { display: none !important; }
+.about-page { padding-bottom: 255px; }
+.about-page.radio-expanded { padding-bottom: 410px; }
+.about-page .about-hero { padding-top: 85px; }
+.about-page .about-hero > p:not(.eyebrow) { font-size: 14px; }
+.about-page .chapter-body .lead { font-size: 22px; line-height: 1.95; }
+.about-page .chapter-body > p:not(.lead) { font-size: 15px; line-height: 2; margin-top: 17px; }
+.about-page .interest-line { margin: 0 0 22px !important; }
+.interest-line span { display: block; font-size: 11px; color: var(--quiet); letter-spacing: .1em; }
+.interest-line strong { display: block; margin-top: 7px; font: 400 24px/1.7 var(--serif); color: var(--paper); }
+.mars-player {
+  position: fixed;
+  right: max(25px, env(safe-area-inset-right));
+  bottom: max(24px, env(safe-area-inset-bottom));
+  z-index: 20;
+  width: 344px;
+  padding: 14px 17px 13px;
+  border: 1px solid #b8c4d32e;
+  border-radius: 16px;
+  background: #101b2cf5;
+  box-shadow: 0 14px 65px #0006;
+  color: var(--paper);
+  font: 12px/1.5 var(--sans);
+}
+@supports (backdrop-filter: blur(15px)) {
+  .mars-player { background: #101b2ce8; backdrop-filter: blur(15px); }
+}
+.radio-symbols { position: absolute; width: 0; height: 0; overflow: hidden; }
+.radio-heading { display: flex; justify-content: space-between; align-items: center; }
+.radio-heading > span { font-size: 8px; letter-spacing: .23em; color: #cbb89b; }
+.radio-light { display: inline-block; width: 5px; height: 5px; border-radius: 50%; background: #8391a5; margin-right: 9px; }
+[data-state="playing"] .radio-light { background: #d6bd8a; box-shadow: 0 0 10px #dfbe8377; }
+.radio-now { display: flex; gap: 14px; align-items: center; margin: 7px 0 10px; }
+.radio-track-copy { flex: 1; min-width: 0; }
+#mars-title { font-size: 15px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+#mars-artist { color: #a9b7c9; font-size: 10px; margin-top: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.radio-orbit { font-size: 31px; font-weight: 200; color: #a6b6ca; margin-right: 4px; }
+.radio-controls { display: flex; gap: 5px; align-items: center; }
+.radio-icon { flex: 0 0 32px; width: 32px; height: 36px; display: grid; place-items: center; border: 0; border-radius: 8px; background: transparent; color: #d5dce5; padding: 0; cursor: pointer; touch-action: manipulation; }
+.radio-icon svg { width: 17px; height: 17px; stroke: currentColor; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.radio-icon:hover { background: #ffffff0c; }
+.radio-icon:focus-visible, #mars-track:focus-visible, #mars-volume:focus-visible { outline: 2px solid #e9cc94; outline-offset: 3px; }
+.radio-play { flex-basis: 38px; width: 38px; height: 38px; border: 1px solid #ccb78f99; border-radius: 50%; color: #e9d2aa; }
+.radio-fold { height: 26px; }
+.radio-fold[aria-expanded="true"] svg { transform: rotate(180deg); }
+#mars-status { flex: 1; min-width: 0; padding: 0 5px; color: #b3c0d1; font-size: 9px; line-height: 1.7; }
+.radio-details { border-top: 1px solid #b4c3d322; padding-top: 15px; margin-top: 13px; }
+.radio-details > label { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; font-size: 10px; color: #bec8d7; }
+#mars-track-count { font-size: 7px; letter-spacing: .08em; color: #9da9ba; }
+#mars-track { width: 100%; min-width: 0; height: 38px; padding: 0 9px; color: #e1e6ef; background: #101827; border: 1px solid #9caabd4d; border-radius: 6px; font: 11px var(--sans); }
+.radio-volume { display: flex; align-items: center; gap: 12px; margin-top: 14px; font-size: 10px; color: #bec8d7; }
+.radio-volume > label { flex-shrink: 0; white-space: nowrap; }
+#mars-volume { flex: 1; width: auto; min-width: 0; height: 32px; margin: 0; accent-color: #c9b38b; cursor: pointer; }
+#mars-volume-value { min-width: 32px; text-align: right; font-variant-numeric: tabular-nums; }
+.radio-hint { color: #a9b6c8; font-size: 9px; margin-top: 9px; }
+.radio-noscript { padding: 20px 8%; font-size: 12px; color: var(--quiet); }
+@media (max-width: 700px) {
+  .about-page { padding-bottom: 210px; }
+  .about-page.radio-expanded { padding-bottom: 385px; }
+  .about-page .about-hero { padding-top: 60px; }
+  .about-page .about-hero > p:not(.eyebrow) { font-size: 13px; }
+  .about-page .chapter-body .lead { font-size: 20px; }
+  .about-page .chapter-body > p:not(.lead) { font-size: 14px; }
+  .interest-line strong { font-size: 23px; }
+  .mars-player { width: min(344px, calc(100% - 24px)); right: max(12px, env(safe-area-inset-right)); bottom: max(12px, env(safe-area-inset-bottom)); padding: 12px 14px; }
+  .radio-icon { min-width: 34px; height: 40px; }
+  .radio-play { height: 40px; }
+  #mars-status { font-size: 9px; padding: 0 2px; }
+  #mars-title { font-size: 14px; }
+}
+@media (max-height: 520px) {
+  .mars-player { max-height: calc(100svh - 24px); overflow-y: auto; }
+}
